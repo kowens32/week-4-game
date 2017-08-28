@@ -1,0 +1,28 @@
+body {
+    color: white;
+    background-color: gray;
+
+    font-family: 'Slabo 27px', serif;
+    text-align: center;
+
+
+}
+
+.col-large-6{
+    border: solid pink 5px;
+    height: 100px;
+
+
+}
+
+#currentWord {
+    font-size: xx-large;
+}
+
+
+.img-responsive {
+    height: 100px;
+    float: left;
+    padding: 10px 10px 10px 10px;
+;
+}
