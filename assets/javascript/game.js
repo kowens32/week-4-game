@@ -2,18 +2,14 @@
 //User has to click on an image to select the specific character to play
 
 //User selected player will move to "Challenger Arena"
-//     $(".down-button").on("click", function () {
-//         $(".img-responsive").animate({top: "+=200px"}, "normal");
-//     });
-// }
+// Move Buttons (Keyboard Down)
+$(document).ready(function() {
+    $(".down-button").on("click", function() {
+        $(".captain-planet").animate({ top: "+=200px" }, "normal");
+    });
 
 
-
-
-// // Move Buttons
-// $(".up-button").on("click", function() {
-//     $(".img-responsive").animate({ top: "+=200px" }, "normal");
-// });
+});
 
 //Remaining characters will move to a new section on the screen called "Waiting Arena"
 
