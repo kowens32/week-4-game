@@ -11,8 +11,19 @@ body {
 .col-large-6{
     border: solid pink 5px;
     height: 900px;
+    overflow: hidden;
+}
 
+.players-container,
+.remaining-players,
+.enemy-container {
+    overflow: hidden;
+}
 
+.user-container,
+.enemy-container{
+    border: solid pink 5px;
+    height: 200px;
 }
 
 #currentWord {

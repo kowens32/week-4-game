@@ -4,19 +4,44 @@ var lukeHP = 90
 var maulHP = 120
 var sidiousHP = 140
 
-
+//make the characters an object w/ HP as properties
 
 //User has to click on an image to select the specific character to play
 
 //User selected player will move to "Challenger Arena"
 // Move Buttons (Keyboard Down)
 $(document).ready(function() {
-    $(".down-button").on("click", function() {
-        $(".captain-planet").animate({ top: "-=200px" }, "normal");
+    $(".players-container .img-responsive").on("click", function() {
+        // create variable to hold img src.
+        var src = $(this).attr("src");
+        // create new img tag
+        var img = $('<img id="obi">');
+        // set src of img tag with variable above
+        img.attr('src', src);
+        img.attr("class", "img-responsive");
+        // append img to appropriate container
+        $(".user-container").append(img);
+        $(this).remove();
+        $(".players-container").addClass("remaining-players").removeClass("players-container");
+
+
+    });
+    //start with one image
+    $(".remaining-players .img-responsive").on("click", function() {
+        // create variable to hold img src.
+        var src = $(this).attr("src");
+        // create new img tag
+        var img = $('<img id="obi">');
+        // set src of img tag with variable above
+        img.attr('src', src);
+        img.attr("class", "img-responsive");
+        // append img to appropriate container
+        $(".enemy-container").append(img);
+        $(this).remove();
+
     });
 
-
-});
+    });
 
 //Remaining characters will move to a new section on the screen called "Waiting Arena"
 
