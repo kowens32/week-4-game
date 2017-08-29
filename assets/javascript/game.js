@@ -11,20 +11,31 @@ var sidious = {healthPoints: 150, attackPoints: 25 };
 //User has to click on an image to select the specific character to play
 
 $(document).ready(function() {
-    $(".players-container .img-responsive").on("click", function() {
-        // create variable to hold img src.
-        var src = $(this).attr("src");
-        // create new img tag
-        var img = $('<img id="obi">');
-        // set src of img tag with variable above
-        img.attr('src', src);
-        img.attr("class", "img-responsive");
-        // append img to appropriate container
-        $(".user-container").append(img);
-        $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
+    function pickPlayer() {
+        $(".players-container .img-responsive").on("click", function () {
+            // create variable to hold img src.
+            var src = $(this).attr("src");
+            // create new img tag
+            var img = $('<img id="obi">');
+            // set src of img tag with variable above
+            img.attr('src', src);
+            img.attr("class", "img-responsive");
+            // append img to appropriate container
+            $(".user-container").append(img);
+            //   $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
+            $(this).remove() && $(".players-container").addClass("remaining-players").removeClass("players-container");
+            ///now change "select your player" to "select your enemy"
+
+        });
+    }
+
+
+
+    function pickEnemy() {
+
         //User has to click on an image to select the specific character to challenge as the enemy
         ///set up a function that runs completely independetly of the players container and remove the class "players container" \\\
-        $(".enemy-container .img-responsive").on("click", function() {
+        $(".remaining-players .img-responsive").on("click", function () {
             // create variable to hold img src.
             var src = $(this).attr("src");
             // create new img tag
@@ -34,14 +45,19 @@ $(document).ready(function() {
             img.attr("class", "img-responsive");
             // append img to appropriate container
             $(".test").append(img);
+
         });
-    });
+
+    }
+    pickEnemy();
+    pickPlayer();
+
 });
 // $(".players-container").replaceWith(" ");
 // $(".test").append(img);
 
 //not sure i need this---changes class of containers
-//$(".players-container").addClass("remaining-players").removeClass("players-container");
+
 
 //Remaining characters will move to a new section on the screen called "Waiting Arena"
 
