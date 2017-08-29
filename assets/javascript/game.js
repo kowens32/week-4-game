@@ -53,21 +53,23 @@ $(".attack-button").on("click", function () {
     //HP has to be stored
     console.log("is this hp " + random);
     $(obi).attr("attackPoints", random);
-console.log(obi.attackPoints);
-
+console.log("obi new ap" +obi.attackPoints);
+    //The randomly generated Attack points will be stored for the next opponent and increased each time the "Attack button is pressed
+    //etc 8, 16, 24, 32
     $(".attack-button").on("click", function () {
-        //The randomly generated Attack points will xbe stored for the next opponent and increased each time the "Attack button is pressed
-        //etc 8, 16, 24, 32
-        var increasedHP = (this + random)
+        var increasedHP = (random + random)
         console.log("new HP " + increasedHP);
 
-
+///The "Attack Points" must be subtracted from the character every single time the "Attack" button is pressed
         $(".attack-button").on("click", function () {
-            //The randomly generated HP will be stored for the next opponent and increased each time the "Attack button is pressed
-            //etc 8, 16, 24, 32
-            var sol = maulHP - increasedHP
+            var sol = luke.healthPoints - increasedHP
             console.log("decreasing hp " + sol);
         });
+    });
+
+    $(".attack-button").on("click", function () {
+         $(obi).attr("healthPoints", (obi.healthPoints - luke.attackPoints));
+        console.log("obi new hp " +obi.healthPoints);
     });
 });
 
