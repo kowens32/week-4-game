@@ -1,5 +1,9 @@
-//make the characters an object w/ HP as properties
-var obi = {healthPoints: 125, attackPoints: 15 };
+//make the characters an object w/ HP as properties, AP and CAP as properties
+//look up how to select an object and make the function run off of ot it
+var obi = {
+    healthPoints: 125,
+    attackPoints: 15
+};
 var luke = {healthPoints: 120, attackPoints: 10  };
 var maul = {healthPoints: 140, attackPoints: 20 };
 var sidious = {healthPoints: 150, attackPoints: 25 };
@@ -19,6 +23,7 @@ $(document).ready(function() {
         $(".user-container").append(img);
         $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
         //User has to click on an image to select the specific character to challenge as the enemy
+        ///set up a function that runs completely independetly of the players container and remove the class "players container" \\\
         $(".enemy-container .img-responsive").on("click", function() {
             // create variable to hold img src.
             var src = $(this).attr("src");
