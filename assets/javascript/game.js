@@ -21,11 +21,11 @@ $(document).ready(function() {
         img.attr("class", "img-responsive");
         // append img to appropriate container
         $(".user-container").append(img);
-        $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
+        $(this).remove() && $(".enemy ").append($( ".players-container" ) );
         // $(".players-container").replaceWith(" ");
         // $(".test").append(img);
 
-     //not sure i need this
+     //this changes the container class
         //$(".players-container").addClass("remaining-players").removeClass("players-container");
 
     });
