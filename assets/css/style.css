@@ -21,7 +21,8 @@ body {
 }
 
 .user-container,
-.enemy-container{
+.enemy-container,
+.test{
     border: solid pink 5px;
     height: 200px;
 }

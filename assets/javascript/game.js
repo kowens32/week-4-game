@@ -21,13 +21,16 @@ $(document).ready(function() {
         img.attr("class", "img-responsive");
         // append img to appropriate container
         $(".user-container").append(img);
-        $(this).remove();
-        $(".players-container").addClass("remaining-players").removeClass("players-container");
+        $(this).remove() && $(".enemy-container").append($( "#obi" ) );
+        // $(".players-container").replaceWith(" ");
+        // $(".test").append(img);
 
+     //not sure i need this
+        //$(".players-container").addClass("remaining-players").removeClass("players-container");
 
     });
-    //start with one image
-    $(".remaining-players .img-responsive").on("click", function() {
+
+    $(".test .img-responsive").on("click", function() {
         // create variable to hold img src.
         var src = $(this).attr("src");
         // create new img tag
@@ -41,7 +44,8 @@ $(document).ready(function() {
 
     });
 
-    });
+
+});
 
 //Remaining characters will move to a new section on the screen called "Waiting Arena"
 
