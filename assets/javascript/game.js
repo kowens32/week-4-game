@@ -1,8 +1,8 @@
 //make the characters an object w/ HP as properties
-var obi = {healthPoints:"125" };
-var luke = {healthPoints:"120" };
-var maul = {healthPoints:"140" };
-var sidious = {healthPoints:"150" };
+var obi = {healthPoints: 125, attackPoints: 15 };
+var luke = {healthPoints: 120, attackPoints: 10  };
+var maul = {healthPoints: 140, attackPoints: 20 };
+var sidious = {healthPoints: 150, attackPoints: 25 };
 
         //User has to click on an image to select the specific character to play
 
@@ -52,10 +52,13 @@ $(".attack-button").on("click", function () {
     var random = Math.floor(Math.random() * 10) + 1;
     //HP has to be stored
     console.log("is this hp " + random);
+    $(obi).attr("attackPoints", random);
+console.log(obi.attackPoints);
+
     $(".attack-button").on("click", function () {
-        //The randomly generated Attack points will be stored for the next opponent and increased each time the "Attack button is pressed
+        //The randomly generated Attack points will xbe stored for the next opponent and increased each time the "Attack button is pressed
         //etc 8, 16, 24, 32
-        var increasedHP = (random + random)
+        var increasedHP = (this + random)
         console.log("new HP " + increasedHP);
 
 
