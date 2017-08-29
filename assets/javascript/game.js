@@ -21,7 +21,7 @@ $(document).ready(function() {
         img.attr("class", "img-responsive");
         // append img to appropriate container
         $(".user-container").append(img);
-        $(this).remove() && $(".enemy-container").append($( "#obi" ) );
+        $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
         // $(".players-container").replaceWith(" ");
         // $(".test").append(img);
 
