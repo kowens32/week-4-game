@@ -2,19 +2,23 @@
 //look up how to select an object and make the function run off of ot it
 var obi = {
     healthPoints: 125,
-    attackPoints: 15
+    attackPoints: 15,
+   counterAttack: 20
 };
 var luke = {
     healthPoints: 120,
-    attackPoints: 10
+    attackPoints: 10,
+    counterAttack: 15
 };
 var maul = {
     healthPoints: 140,
-    attackPoints: 20
+    attackPoints: 20,
+    counterAttack: 25
 };
 var sidious = {
     healthPoints: 150,
-    attackPoints: 25
+    attackPoints: 25,
+   counterAttack: 30
 };
 
 //User has to click on an image to select the specific character to play
