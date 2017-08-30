@@ -1,33 +1,30 @@
 //make the characters an object w/ HP as properties, AP and CAP as properties
 //look up how to select an object and make the function run off of ot it
 
-var characters = {
-    var obi = {
+var characters =
+    [{userName: "obi",
         healthPoints: 125,
         attackPoints: 15,
         counterAttack: 20,
-        visual: "assets/images/obiwan.jpg"
-    }
-};
-var luke = {
+        visual: "assets/images/obiwan.jpg"},
+
+    {userName:"luke",
     healthPoints: 120,
     attackPoints: 10,
     counterAttack: 15,
-    visual: "assets/images/luke.jpg"
-};
-var maul = {
+    visual: "assets/images/luke.jpg"},
+
+    {userName:"maul",
     healthPoints: 140,
     attackPoints: 20,
     counterAttack: 25,
-    visual: "assets/images/darthmaul.jpg"
-};
-var sidious = {
+    visual: "assets/images/darthmaul.jpg"},
+
+    {userName:"sidious",
     healthPoints: 150,
     attackPoints: 25,
    counterAttack: 30,
-    visual: "assets/images/darthsidious.jpg"
-};
-}
+    visual: "assets/images/darthsidious.jpg"}]
 
 var userHero = "";
 
