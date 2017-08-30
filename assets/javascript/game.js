@@ -4,59 +4,56 @@ var obi = {
     healthPoints: 125,
     attackPoints: 15
 };
-var luke = {healthPoints: 120, attackPoints: 10  };
-var maul = {healthPoints: 140, attackPoints: 20 };
-var sidious = {healthPoints: 150, attackPoints: 25 };
+var luke = {
+    healthPoints: 120,
+    attackPoints: 10
+};
+var maul = {
+    healthPoints: 140,
+    attackPoints: 20
+};
+var sidious = {
+    healthPoints: 150,
+    attackPoints: 25
+};
 
 //User has to click on an image to select the specific character to play
 
 $(document).ready(function() {
-    function pickPlayer() {
-        $(".players-container .img-responsive").on("click", function () {
-            // create variable to hold img src.
-            var src = $(this).attr("src");
-            // create new img tag
-            var img = $('<img id="obi">');
-            // set src of img tag with variable above
-            img.attr('src', src);
-            img.attr("class", "img-responsive");
-            // append img to appropriate container
-            $(".user-container").append(img);
-            //   $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
-            $(this).remove() && $(".players-container").addClass("remaining-players").removeClass("players-container");
-            ///now change "select your player" to "select your enemy"
 
-        });
-    }
+    $(".players-container .img-responsive").on("click", function () {
+        // create variable to hold img src.
+        var src = $(this).attr("src");
+        // create new img tag
+        var img = $('<img id="obi">');
+        // set src of img tag with variable above
+        img.attr('src', src);
+        img.attr("class", "img-responsive");
+        // append img to appropriate container
+        $(".user-container").append(img);
+        $(".players-container .img-responsive").off("click");
+        //   $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
+        $(this).remove() && $(".players-container").addClass("remaining-players").removeClass("players-container");
+        ///now change "select your player" to "select your enemy"
 
-
-
-    function pickEnemy() {
-
-        //User has to click on an image to select the specific character to challenge as the enemy
-        ///set up a function that runs completely independetly of the players container and remove the class "players container" \\\
-        $(".remaining-players .img-responsive").on("click", function () {
-            // create variable to hold img src.
-            var src = $(this).attr("src");
-            // create new img tag
-            var img = $('<img id="obi">');
-            // set src of img tag with variable above
-            img.attr('src', src);
-            img.attr("class", "img-responsive");
-            // append img to appropriate container
-            $(".test").append(img);
-
-        });
-
-    }
-    pickEnemy();
-    pickPlayer();
-
+    $(".remaining-players .img-responsive").on("click", function () {
+        // create variable to hold img src.
+        var src = $(this).attr("src");
+        // create new img tag
+        var img = $('<img id="">');
+        // set src of img tag with variable above
+        img.attr('src', src);
+        img.attr("class", "img-responsive");
+        // append img to appropriate container
+        $(".test").append(img);
+         });
+    });
 });
+
 // $(".players-container").replaceWith(" ");
 // $(".test").append(img);
 
-//not sure i need this---changes class of containers
+
 
 
 //Remaining characters will move to a new section on the screen called "Waiting Arena"
