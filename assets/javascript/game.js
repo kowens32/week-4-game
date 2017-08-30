@@ -46,6 +46,7 @@ $(document).ready(function() {
         img.attr("class", "img-responsive");
         // append img to appropriate container
         $(".test").append(img);
+        $(this).remove();
          });
     });
 });
