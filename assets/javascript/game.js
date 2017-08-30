@@ -72,15 +72,11 @@ $(document).ready(function() {
 //Attack points must be randomly generated
 $(".attack-button").on("click", function () {
     $(obi).attr("healthPoints", (obi.healthPoints - luke.attackPoints));
-
-
+    $(".test").html(luke.healthPoints);
+    $(luke).attr("healthPoints", (luke.healthPoints - obi.attackPoints));
+    $(".user-container").html(obi.healthPoints);
     console.log("is this obi's attack "+obi.healthPoints);
-
-
-
-
-
-
+    console.log("is this luke's attack" + luke.healthPoints);
 });
 
 
