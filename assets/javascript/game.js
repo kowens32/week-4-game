@@ -71,24 +71,44 @@ $(document).ready(function() {
 
 //Attack points must be randomly generated
 $(".attack-button").on("click", function () {
-    // ... we generate a random number
-    var random = Math.floor(Math.random() * 10) + 1;
-    //HP has to be stored
-    console.log("is this hp " + random);
-    $(obi).attr("attackPoints", random);
-    console.log("obi new ap" + obi.attackPoints);
-    //The randomly generated Attack points will be stored for the next opponent and increased each time the "Attack button is pressed
-    //etc 8, 16, 24, 32
-    var increasedHP = (random + random)
-    console.log("new HP " + increasedHP);
-///The "Attack Points" must be subtracted from the character every single time the "Attack" button is pressed
-    var sol = luke.healthPoints - increasedHP
-    console.log("decreasing hp " + sol);
     $(obi).attr("healthPoints", (obi.healthPoints - luke.attackPoints));
-    console.log("obi new hp " + obi.healthPoints);
+
+
+    console.log("is this obi's attack "+obi.healthPoints);
+
+
+
+
+
+
 });
 
-//and then subtracted from the opposing players
+
+
+
+
+
+
+
+    //////Old code from randomly generated AP\\\\\\\
+    // ... we generate a random number
+//     var random = Math.floor(Math.random() * 10) + 1;
+//     //HP has to be stored
+//     console.log("is this hp " + random);
+//     $(obi).attr("attackPoints", random);
+//     console.log("obi new ap" + obi.attackPoints);
+//     //The randomly generated Attack points will be stored for the next opponent and increased each time the "Attack button is pressed
+//     //etc 8, 16, 24, 32
+//     var increasedHP = (random + random)
+//     console.log("new HP " + increasedHP);
+// ///The "Attack Points" must be subtracted from the character every single time the "Attack" button is pressed
+//     var sol = luke.healthPoints - increasedHP
+//     console.log("decreasing hp " + sol);
+//     $(obi).attr("healthPoints", (obi.healthPoints - luke.attackPoints));
+//     console.log("obi new hp " + obi.healthPoints);
+
+//
+// //and then subtracted from the opposing players
 
 
 //"HP" will be updated after every click on "Attack"
