@@ -1,25 +1,41 @@
 //make the characters an object w/ HP as properties, AP and CAP as properties
 //look up how to select an object and make the function run off of ot it
-var obi = {
-    healthPoints: 125,
-    attackPoints: 15,
-   counterAttack: 20
+
+var characters = {
+    var obi = {
+        healthPoints: 125,
+        attackPoints: 15,
+        counterAttack: 20,
+        visual: "assets/images/obiwan.jpg"
+    }
 };
 var luke = {
     healthPoints: 120,
     attackPoints: 10,
-    counterAttack: 15
+    counterAttack: 15,
+    visual: "assets/images/luke.jpg"
 };
 var maul = {
     healthPoints: 140,
     attackPoints: 20,
-    counterAttack: 25
+    counterAttack: 25,
+    visual: "assets/images/darthmaul.jpg"
 };
 var sidious = {
     healthPoints: 150,
     attackPoints: 25,
-   counterAttack: 30
+   counterAttack: 30,
+    visual: "assets/images/darthsidious.jpg"
 };
+}
+
+var userHero = "";
+
+var userEnemy = "";
+
+var heroAttackPoints = "";
+
+
 
 //User has to click on an image to select the specific character to play
 
@@ -33,8 +49,10 @@ $(document).ready(function() {
         // set src of img tag with variable above
         img.attr('src', src);
         img.attr("class", "img-responsive");
+        img.attr("heroAttackPoints","heroAttackPoints" );
         // append img to appropriate container
         $(".user-container").append(img);
+        console.log("what user is " + src);
         $(".players-container .img-responsive").off("click");
         //   $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
         $(this).remove() && $(".players-container").addClass("remaining-players").removeClass("players-container");
@@ -53,6 +71,27 @@ $(document).ready(function() {
         $(this).remove();
          });
     });
+
+
+    function firstAttack() {
+        $(".attack-button").on("click", function () {
+
+           // heroAttackPoints = (heroAttackPoints + this.attackPoints);
+            heroAttackPoints = ($(this).attr("heroAttackPoints"));
+            console.log($(this).attr("heroAttackPoints"));
+            console.log("hero attack points "+heroAttackPoints);
+            $(this).attr("healthPoints", (this.healthPoints - this.counterAttack));
+            // $(".user-container").append("<br>" +obi.healthPoints);
+            $(this).attr("healthPoints", (this.healthPoints - heroAttackPoints));
+            //  $(".test").append("<br>" +luke.healthPoints);
+            console.log("hero attack points "+heroAttackPoints);
+            console.log("is this obi's first attack " + this.healthPoints);
+            console.log("is this luke's first attack" + this.healthPoints);
+
+        });
+    };
+
+    firstAttack();
 });
 
 // $(".players-container").replaceWith(" ");
@@ -70,14 +109,15 @@ $(document).ready(function() {
 //User will click "Attack" in which the enemy will lose Health Points "HP"
 
 //Attack points must be randomly generated
-$(".attack-button").on("click", function () {
-    $(obi).attr("healthPoints", (obi.healthPoints - luke.attackPoints));
-    $(".test").html(luke.healthPoints);
-    $(luke).attr("healthPoints", (luke.healthPoints - obi.attackPoints));
-    $(".user-container").html(obi.healthPoints);
-    console.log("is this obi's attack " + obi.healthPoints);
-    console.log("is this luke's attack" + luke.healthPoints);
-});
+
+///Can i have an img as a property in an object?
+
+
+
+
+
+
+
 
 
 
