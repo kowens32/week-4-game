@@ -8,23 +8,23 @@ var characters =
         counterAttack: 20,
         visual: "assets/images/obiwan.jpg"},
 
-    {userName:"luke",
+    {userName: "luke",
     healthPoints: 120,
     attackPoints: 10,
     counterAttack: 15,
     visual: "assets/images/luke.jpg"},
 
-    {userName:"maul",
+    {userName: "maul",
     healthPoints: 140,
     attackPoints: 20,
     counterAttack: 25,
     visual: "assets/images/darthmaul.jpg"},
 
-    {userName:"sidious",
+    {userName: "sidious",
     healthPoints: 150,
     attackPoints: 25,
    counterAttack: 30,
-    visual: "assets/images/darthsidious.jpg"}]
+    visual: "assets/images/darthsidious.jpg"}];
 
 var userHero = "";
 
@@ -46,7 +46,8 @@ $(document).ready(function() {
         // set src of img tag with variable above
         img.attr('src', src);
         img.attr("class", "img-responsive");
-        img.attr("heroAttackPoints","heroAttackPoints" );
+       // img.attr("heroAttackPoints", );
+      //  img.attr("id",);
         // append img to appropriate container
         $(".user-container").append(img);
         console.log("what user is " + src);
@@ -56,6 +57,8 @@ $(document).ready(function() {
         ///now change "select your player" to "select your enemy"
 
     $(".remaining-players .img-responsive").on("click", function () {
+        console.log(characters[3].userName);
+        console.log(characters[3].healthPoints);
         // create variable to hold img src.
         var src = $(this).attr("src");
         // create new img tag
@@ -71,10 +74,12 @@ $(document).ready(function() {
 
 
     function firstAttack() {
+
         $(".attack-button").on("click", function () {
 
            // heroAttackPoints = (heroAttackPoints + this.attackPoints);
             heroAttackPoints = ($(this).attr("heroAttackPoints"));
+            // console.log(characters.userName);
             console.log($(this).attr("heroAttackPoints"));
             console.log("hero attack points "+heroAttackPoints);
             $(this).attr("healthPoints", (this.healthPoints - this.counterAttack));
