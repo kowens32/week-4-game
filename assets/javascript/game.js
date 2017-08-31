@@ -1,36 +1,45 @@
 //make the characters an object w/ HP as properties, AP and CAP as properties
 //look up how to select an object and make the function run off of ot it
 
-var characters =
-    [{userName: "obi",
+var characters = {
+    "obi": {
+        userName: "obi",
         healthPoints: 125,
         attackPoints: 15,
         counterAttack: 20,
-        visual: "assets/images/obiwan.jpg"},
+        visual: "assets/images/obiwan.jpg"
+    },
 
-    {userName: "luke",
+"luke": {
+    userName: "luke",
     healthPoints: 120,
     attackPoints: 10,
     counterAttack: 15,
-    visual: "assets/images/luke.jpg"},
-
-    {userName: "maul",
+    visual: "assets/images/luke.jpg"
+},
+"maul": {
+    userName: "maul",
     healthPoints: 140,
     attackPoints: 20,
     counterAttack: 25,
-    visual: "assets/images/darthmaul.jpg"},
-
-    {userName: "sidious",
+    visual: "assets/images/darthmaul.jpg"
+},
+"sidious": {
+    userName: "sidious",
     healthPoints: 150,
     attackPoints: 25,
    counterAttack: 30,
-    visual: "assets/images/darthsidious.jpg"}];
+    visual: "assets/images/darthsidious.jpg"
+    }
+};
 
-var userHero = "";
+var userHero = [];
 
 var userEnemy = "";
 
 var heroAttackPoints = "";
+
+var remainingPlayers;
 
 
 
@@ -39,6 +48,8 @@ var heroAttackPoints = "";
 $(document).ready(function() {
 
     $(".players-container .img-responsive").on("click", function () {
+
+        console.log("who am i " +userHero);
         // create variable to hold img src.
         var src = $(this).attr("src");
         // create new img tag
@@ -46,8 +57,8 @@ $(document).ready(function() {
         // set src of img tag with variable above
         img.attr('src', src);
         img.attr("class", "img-responsive");
-       // img.attr("heroAttackPoints", );
-      //  img.attr("id",);
+        // img.attr("heroAttackPoints", );
+        //  img.attr("id",);
         // append img to appropriate container
         $(".user-container").append(img);
         console.log("what user is " + src);
@@ -57,8 +68,6 @@ $(document).ready(function() {
         //now change "select your player" to "select your enemy"
 
     $(".remaining-players .img-responsive").on("click", function () {
-        console.log(characters[3].userName);
-        console.log(characters[3].healthPoints);
         // create variable to hold img src.
         var src = $(this).attr("src");
         // create new img tag
@@ -95,6 +104,27 @@ $(document).ready(function() {
 
     firstAttack();
 });
+
+
+
+
+// //////
+// console.log("do you know the src? "+src);
+// if(!userHero) {
+//     userHero = characters.userName;
+//     for (var key in characters) {
+//         if (key !== userName)
+//         {
+//             remainingPlayers.push(characters[key]);
+//         }
+//     }
+// }
+
+
+
+
+
+
 
 // $(".players-container").replaceWith(" ");
 // $(".test").append(img);
