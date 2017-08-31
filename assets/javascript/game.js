@@ -54,7 +54,7 @@ $(document).ready(function() {
         $(".players-container .img-responsive").off("click");
         //   $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
         $(this).remove() && $(".players-container").addClass("remaining-players").removeClass("players-container");
-        ///now change "select your player" to "select your enemy"
+        //now change "select your player" to "select your enemy"
 
     $(".remaining-players .img-responsive").on("click", function () {
         console.log(characters[3].userName);
