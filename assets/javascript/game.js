@@ -48,6 +48,8 @@ var remainingPlayers;
 $(document).ready(function() {
 
     $(".players-container .img-responsive").on("click", function () {
+        //removed the images once they were clicked on and appended them to their appropriate containers
+        //STILL TRYING TO FIGURE OUT HOW TO MATCH THE IDS WITH THE OBJECTS ABOVE
 
 ///var src = $(this).attr("src"); but replace src with id
         // create variable to hold img src.
@@ -66,6 +68,7 @@ $(document).ready(function() {
         // append img to appropriate container
         $(".user-container").append(img);
         console.log("what user is " + src);
+        //turned this off so that my images would not continue to append to the user-container
         $(".players-container .img-responsive").off("click");
         //   $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
         $(this).remove() && $(".players-container").addClass("remaining-players").removeClass("players-container");
@@ -90,7 +93,11 @@ $(document).ready(function() {
 
         $(".attack-button").on("click", function () {
 
-           // heroAttackPoints = (heroAttackPoints + this.attackPoints);
+            //set up the math so that the hero would compound his health points with each attack
+            //set up the math so that each character's attack points would properly subtract from the opposing player's
+            //health points
+
+            heroAttackPoints = (heroAttackPoints + this.attackPoints);
             heroAttackPoints = ($(this).attr("heroAttackPoints"));
             // console.log(characters.userName);
             console.log($(this).attr("heroAttackPoints"));
