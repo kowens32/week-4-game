@@ -49,13 +49,13 @@ $(document).ready(function() {
 
     $(".players-container .img-responsive").on("click", function () {
 
-
+///var src = $(this).attr("src"); but replace src with id
         // create variable to hold img src.
         var src = $(this).attr("src");
-        if (src = characters.visual) {
-            userHero.push(characters.visual);
-        }
-        console.log(characters);
+        //if (src = characters.visual) {
+         // userHero.push(characters.visual);
+         // }
+        // console.log(characters);
         // create new img tag
         var img = $('<img id="obi">');
         // set src of img tag with variable above
