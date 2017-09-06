@@ -33,6 +33,8 @@ var characters = {
     }
 };
 
+var obi = characters[name]
+
 var userHero;
 
 var userEnemy = "";
@@ -47,19 +49,21 @@ var remainingPlayers;
 
 $(document).ready(function() {
 
-    $(".players-container .img-responsive").on("click", function () {
+    $(document).on("click", ".players-container .img-responsive", function () {
         //removed the images once they were clicked on and appended them to their appropriate containers
         //STILL TRYING TO FIGURE OUT HOW TO MATCH THE IDS WITH THE OBJECTS ABOVE
 
 ///var src = $(this).attr("src"); but replace src with id
         // create variable to hold img src.
         var src = $(this).attr("src");
+        var name = $(this).attr("id");
         //if (src = characters.visual) {
          // userHero.push(characters.visual);
          // }
         // console.log(characters);
         // create new img tag
-        var img = $('<img id="obi">');
+        var img = $('<img>');
+        img.attr("id", name);
         // set src of img tag with variable above
         img.attr('src', src);
         img.attr("class", "img-responsive");
@@ -74,11 +78,13 @@ $(document).ready(function() {
         $(this).remove() && $(".players-container").addClass("remaining-players").removeClass("players-container");
         //now change "select your player" to "select your enemy"
 
-    $(".remaining-players .img-responsive").on("click", function () {
+    $(document).on("click", ".remaining-players .img-responsive", function () {
         // create variable to hold img src.
         var src = $(this).attr("src");
+        var name = $(this).attr("id");
         // create new img tag
-        var img = $('<img id="">');
+        var img = $('<img>');
+        img.attr("id", name);
         // set src of img tag with variable above
         img.attr('src', src);
         img.attr("class", "img-responsive");
