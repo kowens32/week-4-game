@@ -96,8 +96,8 @@ $(document).ready(function() {
         img.attr("class", "img-responsive");
         // append img to appropriate container
         $(".test").append(img);
-        enemyID = (name);
-        console.log('enemy' + enemyID);
+        enemyId = (name);
+        console.log('enemy' + enemyId);
         $(this).remove();
 
          });
@@ -109,10 +109,10 @@ $(document).ready(function() {
         $(".attack-button").on("click", function () {
 
 
-             heroAttackPoints = .healthPoints;
-
-             console.log(obi.healthPoints);
-
+             heroAttackPoints = heroId.healthPoints;
+//properly logging the right heroId and enemyId
+            console.log(enemyId);
+            console.log(heroId);
 
 
 
