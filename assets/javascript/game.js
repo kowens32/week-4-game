@@ -43,6 +43,10 @@ var heroAttackPoints = "";
 
 var remainingPlayers;
 
+var heroId = "";
+var enemyId = "";
+
+
 
 
 //User has to click on an image to select the specific character to play
@@ -72,6 +76,8 @@ $(document).ready(function() {
         // append img to appropriate container
         $(".user-container").append(img);
         console.log("what user is " + src);
+        heroId = (name);
+        console.log('hero' + heroId);
         //turned this off so that my images would not continue to append to the user-container
         $(".players-container .img-responsive").off("click");
         //   $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
@@ -90,7 +96,10 @@ $(document).ready(function() {
         img.attr("class", "img-responsive");
         // append img to appropriate container
         $(".test").append(img);
+        enemyID = (name);
+        console.log('enemy' + enemyID);
         $(this).remove();
+
          });
     });
 
@@ -99,22 +108,28 @@ $(document).ready(function() {
 
         $(".attack-button").on("click", function () {
 
-            //set up the math so that the hero would compound his health points with each attack
-            //set up the math so that each character's attack points would properly subtract from the opposing player's
-            //health points
 
-            heroAttackPoints = (heroAttackPoints + this.attackPoints);
-            heroAttackPoints = ($(this).attr("heroAttackPoints"));
-            // console.log(characters.userName);
-            console.log($(this).attr("heroAttackPoints"));
-            console.log("hero attack points "+heroAttackPoints);
-            $(this).attr("healthPoints", (this.healthPoints - this.counterAttack));
-            // $(".user-container").append("<br>" +obi.healthPoints);
-            $(this).attr("healthPoints", (this.healthPoints - heroAttackPoints));
-            //  $(".test").append("<br>" +luke.healthPoints);
-            console.log("hero attack points "+heroAttackPoints);
-            console.log("is this obi's first attack " + this.healthPoints);
-            console.log("is this luke's first attack" + this.healthPoints);
+             heroAttackPoints = .healthPoints;
+
+             console.log(obi.healthPoints);
+
+
+
+
+
+            // heroAttackPoints = ($(this).attr("heroAttackPoints"));
+            //
+            //
+            // // console.log(characters.userName);
+            // console.log($(this).attr("heroAttackPoints"));
+            // console.log("hero attack points "+heroAttackPoints);
+            // $(this).attr("healthPoints", (this.healthPoints - this.counterAttack));
+            // // $(".user-container").append("<br>" +obi.healthPoints);
+            // $(this).attr("healthPoints", (this.healthPoints - heroAttackPoints));
+            // //  $(".test").append("<br>" +luke.healthPoints);
+            // console.log("hero attack points "+heroAttackPoints);
+            // console.log("is this obi's first attack " + this.healthPoints);
+            // console.log("is this luke's first attack" + this.healthPoints);
 
         });
     };
