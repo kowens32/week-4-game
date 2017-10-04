@@ -33,7 +33,7 @@ var characters = {
     }
 };
 
-var obi = characters[name]
+// var obi = characters[name]
 
 var userHero;
 
@@ -109,12 +109,15 @@ $(document).ready(function() {
         $(".attack-button").on("click", function () {
 
 
-             heroAttackPoints = heroId.healthPoints;
+            console.log(characters.luke.healthPoints);
+
 //properly logging the right heroId and enemyId
             console.log(enemyId);
             console.log(heroId);
+            console.log(heroAttackPoints);
 
-
+            if (heroId = characters.userName){
+            }
 
 
             // heroAttackPoints = ($(this).attr("heroAttackPoints"));
