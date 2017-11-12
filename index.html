@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
 <head>
     <meta charset="UTF-8">
-    <title>Star Wars</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-
+    <title>Star Wars with jQuery!</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet" type="text/css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Game Logic -->
+    <script type="text/javascript" src="assets/javascript/rpgStarWars.js"></script>
 </head>
 
 <body>
 
-<div class="container">
-    <!--<div class="row">-->
-    <div class="row">
-        <div class="col-large-6">
-            <div class="test">
-            </div>
-            <div class="players-container"><h1>SELECT YOUR PLAYER</h1>
-                <img src="assets/images/obiwan.jpg" alt="Obi" id="obi" class="img-responsive">
-                <img src="assets/images/luke.jpg" alt="Luke"  id="luke" class="img-responsive">
-                <img src="assets/images/darthmaul.jpg" alt="Maul" id="maul" class="img-responsive">
-                <img src="assets/images/darthsidious.jpg" alt="Sidious" id="sidious" class="img-responsive">
-            </div>
-            <div class="user-container"></div>
-            <div class="enemy-container"><h1>SELECT YOUR ENEMY</h1></div>
-            <div class="button-container">
-                <button class="btn btn-default btn-lg attack-button">Attack!</button>
-            </div>
+    <div class="maint-section-title"> Star Wars RPG!</div>
+    <div id="main-game-section">
+        <!---Where the characters are initially available to be selected------>
+    <div id="characters-section"></div>
+        <div class="section-title">Select Your Character</div>
+    </div>
 
+    <!-------Section for our selected character------------------>
+<div id="selected-character-section">
+    <div class="section-title">Your Character</div>
+    <!----Where our selected character will appear-->
+    <div id="selected-character"></div>
+</div>
+
+    <!-----Where our enemies available to attack will appear-------------->
+    <div id="available">
+    <div id="section-title">Enemies Available To Attack</div>
+    </div>
+
+    <div id="action">
+        <div class="character-section">
+            <div class="section-title">Defender</div>
+            <!----Where our defender will appear--------------->
+            <div id="defender"></div>
         </div>
     </div>
 
-</div>
+    <div>
 
-
-
-
-
-<script src="assets/javascript/game.js"></script>
-
-
-</body>
-
+<!----Area for game------------->
+ <div id="'game-message"></div>
+    </body>
 </html>
+
+
+
+
+
+
+
+
+
+
