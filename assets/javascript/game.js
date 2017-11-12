@@ -59,9 +59,137 @@ var killCount =0;
 //This function will render a character card to the page
 //The character rendered, the area they are rendered to, and their status is determined
 //by the arguments passed in.
+var renderCharacter = function(character, renderArea) {
+    var chardDiv = $("<div class ='character' data-name=''" + character.name + "'>");
+    var charName  = $("<div class='character-name'>").text(character.name);
+    var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageURL);
+    var charHealth = $("<div class ='character-health'>").text(charHealth);
+    chardDiv.append(charName).append(charImage).append(charHealth);
+    $(renderArea).append(charDiv);
+
+};
+
+//this function will load all the characters into the character selection to be selected
+    var initializeGame = function() {
+        //Loop through the characters object and call the renderCharacter function on each character to render their card.
+        for (var key in characters) {
+            renderCharacter(characters[key], "#characters-section");
+        }
+    };
+
+    //run the game function
+    initializeGame();
 
 
-//User has to click on an image to select the specific character to play
+    //This function handles updating the selected player or the current defender. If there is no selected
+    // player/defender this function will also place the character based on the areaRender chosen (
+    var updateCharacter = function(charObj, areaRender){
+        //make sure to empy the area so we can re-render the new object
+        $(areaRender).empty();
+        renderCharacter(charObj, areaRender)
+    };
+
+    //This function will render the available-to-attack enemies. This should be run once after a character has been selected
+
+    var renderEnemies = function(enemyArr){
+        for (var i =0; i <enemyArr.length; i++) {
+            renderCharacter(enemyArr[i], '#available-to-attack-section');
+        }
+    };
+
+    //Function to handle rendering game messages
+    var renderMessage = function(message) {
+        //builds the message and appends it to the page
+        var gameMessageSet = $('#game-message');
+        var newMessage = $("<div>").text(message);
+        gameMessageSet.append(newMessage);
+    };
+
+    //Function which handles restarting the game after victory or defeat
+    var restartGame = function(resultMessage){
+        //When the 'Restart' button is clicked, reload the page.
+        var restart =$("<button>Restart</button>").click(function(){
+            location.reload();
+        });
+        //Build div that will display the victory/defeat message
+        var gasmeState = $("div").text(resultMessage);
+
+        //Render the restart button and victory/defeat message to the page.
+        $("body").append(gameState);
+        $("body").append(restart);
+    };
+
+    //Function to clear the game message section
+    var clearMessage = function (){
+        var gameMessage = $('#game-message');
+        gameMessage.text("");
+    };
+
+    //============================================================================================
+
+    //On click event for selecting our character.
+    $('#characters-section').on("click", ".character", function () {
+        //saving the clicked character's name
+        var name = $(this).attr("data-name");
+
+        //If a a player has not yet been chosen
+        if (!attacker) {
+            //We populate attacker with the selected character's information
+            attacker = characters[name];
+            //We then loop through the reaminign characters and push them to the combatanats array
+            for (var key in characters) {
+                combatants.push(characters[key]);
+            }
+        }
+
+        //Hide the character select div.
+        $("#characters-section").hide();
+
+        //then render our selected character and combatants.
+        updateCharacter(attacker, '#selected-characters');
+        renderEnemies(combatants);
+    }
+    });
+
+    //Creates an on click event for each enemy
+    $("#available-to-attack-section").on('click', '.character', function(){
+        //saving the opponet's name
+        var name = $(this).attr("data-name");
+
+        //if there is no defender, the clicked enemy will become the defender
+        if ($("#defender").children().length ===0){
+            defender = characters[name];
+            updateCharacter(defender, "#defender");
+
+            //remove element as it will now be a new defender
+            $(this).remove();
+            clearMessage();
+        }
+    });
+
+    //when you click the attack button, run the following game logic
+    $('#attack-button').on("click", function(){
+        //if there is a defender, combat will occur
+        if ($('#defender').children().length !== 0){
+            //creates messages for our attack and our opponents counter attack
+            var attackMessage = 'You attacked ' + defender.name + " for " + attacker.atack * turnCounter
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -153,87 +281,10 @@ var killCount =0;
 
 
 
-// //////
-// console.log("do you know the src? "+src);
-// if(!userHero) {
-//     userHero = characters.userName;
-//     for (var key in characters) {
-//         if (key !== userName)
-//         {
-//             remainingPlayers.push(characters[key]);
-//         }
-//     }
-// }
 
 
 
 
-
-
-
-// $(".players-container").replaceWith(" ");
-// $(".test").append(img);
-
-
-
-
-//Remaining characters will move to a new section on the screen called "Waiting Arena"
-
-//User has to click on an image to select the specific character to challenge as an opponent
-
-//The user selected enemy will move to the "Defender Arena"
-
-//User will click "Attack" in which the enemy will lose Health Points "HP"
-
-//Attack points must be randomly generated
-
-///Can i have an img as a property in an object?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //////Old code from randomly generated AP\\\\\\\
-    // ... we generate a random number
-//     var random = Math.floor(Math.random() * 10) + 1;
-//     //HP has to be stored
-//     console.log("is this hp " + random);
-//     $(obi).attr("attackPoints", random);
-//     console.log("obi new ap" + obi.attackPoints);
-//     //The randomly generated Attack points will be stored for the next opponent and increased each time the "Attack button is pressed
-//     //etc 8, 16, 24, 32
-//     var increasedHP = (random + random)
-//     console.log("new HP " + increasedHP);
-// ///The "Attack Points" must be subtracted from the character every single time the "Attack" button is pressed
-//     var sol = luke.healthPoints - increasedHP
-//     console.log("decreasing hp " + sol);
-//     $(obi).attr("healthPoints", (obi.healthPoints - luke.attackPoints));
-//     console.log("obi new hp " + obi.healthPoints);
-
-//
-// //and then subtracted from the opposing players
-
-
-//"HP" will be updated after every click on "Attack"
-
-//The enemy will counter attack as user as the User clicks "Attack" and the User will lost "HP"
-
-//"HP" will be updated after every click on "Attack"
-
-
-//When the defender's "HP" are reduced to zero or below, move enemy back to "Waiting Arena" and alert "You won!"
-
-//When the defender's "HP" are reduced to zero or below, move enemy back to "Waiting Arena" and alert "You won!"
 
 
 
