@@ -1,6 +1,7 @@
-//make the characters an object w/ HP as properties, AP and CAP as properties
-//look up how to select an object and make the function run off of ot it
-
+    //Execute this code when the DOM has fully loaded
+$(document).ready(function() {
+    //VARIABLE DECLARATION
+    //=========================================================================
 var characters = {
     "obi": {
         userName: "obi",
@@ -33,25 +34,36 @@ var characters = {
     }
 };
 
-// var obi = characters[name]
+//Will be populated when the players selects a character
 
-var userHero;
+var attacker;
 
-var userEnemy = "";
+//Populated with all the characters the player didn't select
 
-var heroAttackPoints = "";
+var combatants = [];
 
-var remainingPlayers;
+//Will be populated when the player chooses an opponent
 
-var heroId = "";
-var enemyId = "";
+var defender;
+
+//Will keep track of turns during combat. Used for calculating player damage
+var turnCounter = 1;
+
+//Tracks number of defeated opponents
+var killCount =0;
 
 
+//FUNCTIONS
+//=================================================
+
+//This function will render a character card to the page
+//The character rendered, the area they are rendered to, and their status is determined
+//by the arguments passed in.
 
 
 //User has to click on an image to select the specific character to play
 
-$(document).ready(function() {
+
 
     $(document).on("click", ".players-container .img-responsive", function () {
         //removed the images once they were clicked on and appended them to their appropriate containers
@@ -97,7 +109,9 @@ $(document).ready(function() {
         // append img to appropriate container
         $(".test").append(img);
         enemyId = (name);
+        aPoints = this.attackPoints;
         console.log('enemy' + enemyId);
+        console.log(name.attackPoints);
         $(this).remove();
 
          });
@@ -109,15 +123,11 @@ $(document).ready(function() {
         $(".attack-button").on("click", function () {
 
 
-            console.log(characters.luke.healthPoints);
-
 //properly logging the right heroId and enemyId
             console.log(enemyId);
             console.log(heroId);
             console.log(heroAttackPoints);
 
-            if (heroId = characters.userName){
-            }
 
 
             // heroAttackPoints = ($(this).attr("heroAttackPoints"));
