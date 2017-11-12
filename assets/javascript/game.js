@@ -168,122 +168,73 @@ var renderCharacter = function(character, renderArea) {
     });
 
     //when you click the attack button, run the following game logic
-    $('#attack-button').on("click", function(){
+    $('#attack-button').on("click", function() {
         //if there is a defender, combat will occur
-        if ($('#defender').children().length !== 0){
+        if ($('#defender').children().length !== 0) {
             //creates messages for our attack and our opponents counter attack
-            var attackMessage = 'You attacked ' + defender.name + " for " + attacker.atack * turnCounter
+            var attackMessage = 'You attacked ' + defender.name + " for " + attacker.attack * turnCounter + " damage ";
+            var counterAttackMessage = defender.name + " attacked you back for " + defender.enemyAttackBack + " damage ";
+            clearMessage();
+
+            //Reduce defender's health by your attack value
+            defender.health -= attacker.attack * turnCounter;
+
+            //If the enemy still has health..
+            if (defender.health > 0) {
+                updateCharacter(defender, "defender");
+
+                //Render the combat messages.
+                renderMessage(attackMessage);
+                renderMessage(counterAttackMessage);
+
+                //Reduce your health by the opponenet's attack value
+                attacker.health -= defender.enemyAttackBack;
+
+                //Render the player's updated character card.
+                updateCharacter(attacker, '#selected-character');
+
+                //If you have less than zero health the game ends
+                //We call the restartGame function to allow the user to restart the game and play again
+                if (attacker.health <= 0) {
+                    clearMessage();
+                    restartGarem('You have been defeated! Game Over!');
+                    $('#attack-button').off('click');
+                }
+            }
         }
-    })
 
+        else {
+            //if the enemy has less than zero health they are defeated
+            //remove your opponent's character card
+            $('#defender').empty();
 
+            var gameStateMessage = 'You have defeated ' + defender.name + ", you can choose to fight another enemy";
+            renderMessage(gameStateMessage);
 
+            //Increment your kill count
+            killCount++;
 
+            //if you have killed all of your opponents you win
+            //Call the restartGame function to allow the user to restart the game and play win
+            if (killCount >= combatants.length) {
+                clearMessage();
+                $('#attack-button').off('click');
+                restartGame('You won! Game over!');
+            }
+        }
 
+        turnCounter++;
 
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-    $(document).on("click", ".players-container .img-responsive", function () {
-        //removed the images once they were clicked on and appended them to their appropriate containers
-        //STILL TRYING TO FIGURE OUT HOW TO MATCH THE IDS WITH THE OBJECTS ABOVE
-
-///var src = $(this).attr("src"); but replace src with id
-        // create variable to hold img src.
-        var src = $(this).attr("src");
-        var name = $(this).attr("id");
-        //if (src = characters.visual) {
-         // userHero.push(characters.visual);
-         // }
-        // console.log(characters);
-        // create new img tag
-        var img = $('<img>');
-        img.attr("id", name);
-        // set src of img tag with variable above
-        img.attr('src', src);
-        img.attr("class", "img-responsive");
-        // img.attr("heroAttackPoints", );
-        //  img.attr("id",);
-        // append img to appropriate container
-        $(".user-container").append(img);
-        console.log("what user is " + src);
-        heroId = (name);
-        console.log('hero' + heroId);
-        //turned this off so that my images would not continue to append to the user-container
-        $(".players-container .img-responsive").off("click");
-        //   $(this).remove() && $(".enemy-container").append($( ".players-container" ) );
-        $(this).remove() && $(".players-container").addClass("remaining-players").removeClass("players-container");
-        //now change "select your player" to "select your enemy"
-
-    $(document).on("click", ".remaining-players .img-responsive", function () {
-        // create variable to hold img src.
-        var src = $(this).attr("src");
-        var name = $(this).attr("id");
-        // create new img tag
-        var img = $('<img>');
-        img.attr("id", name);
-        // set src of img tag with variable above
-        img.attr('src', src);
-        img.attr("class", "img-responsive");
-        // append img to appropriate container
-        $(".test").append(img);
-        enemyId = (name);
-        aPoints = this.attackPoints;
-        console.log('enemy' + enemyId);
-        console.log(name.attackPoints);
-        $(this).remove();
-
-         });
+    else
+    {
+        //if there is no defender, render an error message
+        clearMessage();
+        renderMessage('No enemy here');
+    }
     });
-
-
-    function firstAttack() {
-
-        $(".attack-button").on("click", function () {
-
-
-//properly logging the right heroId and enemyId
-            console.log(enemyId);
-            console.log(heroId);
-            console.log(heroAttackPoints);
-
-
-
-            // heroAttackPoints = ($(this).attr("heroAttackPoints"));
-            //
-            //
-            // // console.log(characters.userName);
-            // console.log($(this).attr("heroAttackPoints"));
-            // console.log("hero attack points "+heroAttackPoints);
-            // $(this).attr("healthPoints", (this.healthPoints - this.counterAttack));
-            // // $(".user-container").append("<br>" +obi.healthPoints);
-            // $(this).attr("healthPoints", (this.healthPoints - heroAttackPoints));
-            // //  $(".test").append("<br>" +luke.healthPoints);
-            // console.log("hero attack points "+heroAttackPoints);
-            // console.log("is this obi's first attack " + this.healthPoints);
-            // console.log("is this luke's first attack" + this.healthPoints);
-
-        });
-    };
-
-    firstAttack();
-});
-
-
-
-
-
-
-
+    });
 
 
 
