@@ -4,33 +4,33 @@ $(document).ready(function() {
     //=========================================================================
     var characters = {
         "obi": {
-            userName: "obi",
-            healthPoints: 125,
-            attackPoints: 15,
-            counterAttack: 20,
-            visual: "assets/images/obiwan.jpg"
+            name: "obi",
+            health: 125,
+            attack: 15,
+            enemyAttackBack: 20,
+            imageURL: "assets/images/obiwan.jpg"
         },
 
         "luke": {
-            userName: "luke",
-            healthPoints: 120,
-            attackPoints: 10,
-            counterAttack: 15,
-            visual: "assets/images/luke.jpg"
+            name: "luke",
+            health: 120,
+            attack: 10,
+            enemyAttackBack: 15,
+            imageURL: "assets/images/luke.jpg"
         },
         "maul": {
-            userName: "maul",
-            healthPoints: 140,
-            attackPoints: 20,
-            counterAttack: 25,
-            visual: "assets/images/darthmaul.jpg"
+            name: "maul",
+            health: 140,
+            attack: 20,
+            enemyAttackBack: 25,
+            imageURL: "assets/images/darthmaul.jpg"
         },
         "sidious": {
-            userName: "sidious",
-            healthPoints: 150,
-            attackPoints: 25,
-            counterAttack: 30,
-            visual: "assets/images/darthsidious.jpg"
+            name: "sidious",
+            health: 150,
+            attack: 25,
+            enemyAttackBack: 30,
+            imageURL: "assets/images/darthsidious.jpg"
         }
     };
 
@@ -60,7 +60,7 @@ $(document).ready(function() {
 //The character rendered, the area they are rendered to, and their status is determined
 //by the arguments passed in.
     var renderCharacter = function(character, renderArea) {
-        var chardDiv = $("<div class ='character' data-name=''" + character.name + "'>");
+        var chardDiv = $("<div class ='character' data-name='" + character.name + "'>");
         var charName  = $("<div class='character-name'>").text(character.name);
         var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageURL);
         var charHealth = $("<div class ='character-health'>").text(charHealth);
@@ -148,7 +148,8 @@ $(document).ready(function() {
         //then render our selected character and combatants.
         updateCharacter(attacker, '#selected-characters');
         renderEnemies(combatants);
-    }
+    })
+
 });
 
 //Creates an on click event for each enemy
