@@ -68,7 +68,7 @@ $(document).ready(function() {
         $(renderArea).append(charDiv);
 
     };
-git
+
 //this function will load all the characters into the character selection to be selected
     var initializeGame = function() {
         //Loop through the characters object and call the renderCharacter function on each character to render their card.
