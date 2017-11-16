@@ -50,7 +50,7 @@ $(document).ready(function() {
     var turnCounter = 1;
 
 //Tracks number of defeated opponents
-    var killCount =0;
+    var killCount = 0;
 
 
 //FUNCTIONS
@@ -60,15 +60,15 @@ $(document).ready(function() {
 //The character rendered, the area they are rendered to, and their status is determined
 //by the arguments passed in.
     var renderCharacter = function(character, renderArea) {
-        var chardDiv = $("<div class ='character' data-name='" + character.name + "'>");
+        var charDiv = $("<div class ='character' data-name='" + character.name + "'>");
         var charName  = $("<div class='character-name'>").text(character.name);
         var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageURL);
         var charHealth = $("<div class ='character-health'>").text(charHealth);
-        chardDiv.append(charName).append(charImage).append(charHealth);
+        charDiv.append(charName).append(charImage).append(charHealth);
         $(renderArea).append(charDiv);
 
     };
-
+git
 //this function will load all the characters into the character selection to be selected
     var initializeGame = function() {
         //Loop through the characters object and call the renderCharacter function on each character to render their card.
@@ -235,7 +235,7 @@ $('#attack-button').on("click", function() {
         }
     });
 
-});
+
 
 
 
