@@ -92,7 +92,7 @@ $(document).ready(function() {
     //This function will render the available-to-attack enemies. This should be run once after a character has been selected
 
     var renderEnemies = function(enemyArr){
-        for (var i =0; i <enemyArr.length; i++) {
+        for (var i =0; i < enemyArr.length; i++) {
             renderCharacter(enemyArr[i], '#available-to-attack-section');
         }
     };
