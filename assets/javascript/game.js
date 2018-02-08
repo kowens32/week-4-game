@@ -63,7 +63,7 @@ $(document).ready(function() {
         var charDiv = $("<div class ='character' data-name='" + character.name + "'>");
         var charName  = $("<div class='character-name'>").text(character.name);
         var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageURL);
-        var charHealth = $("<div class ='character-health'>").text(charHealth);
+        var charHealth = $("<div class ='character-health'>").text(character.health);
         charDiv.append(charName).append(charImage).append(charHealth);
         $(renderArea).append(charDiv);
 
@@ -108,11 +108,11 @@ $(document).ready(function() {
     //Function which handles restarting the game after victory or defeat
     var restartGame = function(resultMessage){
         //When the 'Restart' button is clicked, reload the page.
-        var restart =$("<button>Restart</button>").click(function(){
+        var restart = $("<button>Restart</button>").click(function(){
             location.reload();
         });
         //Build div that will display the victory/defeat message
-        var gasmeState = $("div").text(resultMessage);
+        var gameState = $("div").text(resultMessage);
 
         //Render the restart button and victory/defeat message to the page.
         $("body").append(gameState);
@@ -138,7 +138,9 @@ $(document).ready(function() {
             attacker = characters[name];
             //We then loop through the reaminign characters and push them to the combatanats array
             for (var key in characters) {
-                combatants.push(characters[key]);
+                if (key !== name) {
+                    combatants.push(characters[key]);
+                }
             }
         }
 
@@ -198,7 +200,7 @@ $('#attack-button').on("click", function() {
             //We call the restartGame function to allow the user to restart the game and play again
             if (attacker.health <= 0) {
                 clearMessage();
-                restartGarem('You have been defeated! Game Over!');
+                restartGame('You have been defeated! Game Over!');
                 $('#attack-button').off('click');
             }
         }
