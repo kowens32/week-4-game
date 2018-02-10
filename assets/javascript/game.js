@@ -142,7 +142,7 @@ $(document).ready(function() {
                     combatants.push(characters[key]);
                 }
             }
-        }
+
 
         //Hide the character select div.
         $("#characters-section").hide();
@@ -150,7 +150,7 @@ $(document).ready(function() {
         //then render our selected character and combatants.
         updateCharacter(attacker, '#selected-characters');
         renderEnemies(combatants);
-    })
+    }
 
 });
 
@@ -205,36 +205,36 @@ $('#attack-button').on("click", function() {
             }
         }
 
-    else {
-        //if the enemy has less than zero health they are defeated
-        //remove your opponent's character card
-        $('#defender').empty();
+        else {
+            //if the enemy has less than zero health they are defeated
+            //remove your opponent's character card
+            $('#defender').empty();
 
-        var gameStateMessage = 'You have defeated ' + defender.name + ", you can choose to fight another enemy";
-        renderMessage(gameStateMessage);
+            var gameStateMessage = 'You have defeated ' + defender.name + ", you can choose to fight another enemy";
+            renderMessage(gameStateMessage);
 
-        //Increment your kill count
-        killCount++;
+            //Increment your kill count
+            killCount++;
 
-        //if you have killed all of your opponents you win
-        //Call the restartGame function to allow the user to restart the game and play win
-        if (killCount >= combatants.length) {
-            clearMessage();
-            $('#attack-button').off('click');
-            restartGame('You won! Game over!');
-          }
+            //if you have killed all of your opponents you win
+            //Call the restartGame function to allow the user to restart the game and play win
+            if (killCount >= combatants.length) {
+                clearMessage();
+                $('#attack-button').off('click');
+                restartGame('You won! Game over!');
+            }
         }
 
-    turnCounter++;
+        turnCounter++;
 
     }
 
-        else
-              {
-            //if there is no defender, render an error message
-            clearMessage();
-            renderMessage('No enemy here');
-        }
+    else {
+        //if there is no defender, render an error message
+        clearMessage();
+        renderMessage('No enemy here');
+    }
+});
     });
 
 
